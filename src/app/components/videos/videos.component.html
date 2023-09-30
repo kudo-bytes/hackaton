@@ -1,9 +1,10 @@
 <div class="container">
   <div class="view-box">
     <div class="view-content">
-      <div *ngIf="filteredVideos.length">
-        <img [src]="filteredVideos[0].url" alt="">
-      </div>
+        <video *ngFor="let singleVideo of filteredVideos" #videoElement autoplay muted loop cdkDrag (cdkDragEnded)="onSwipe($event, singleVideo.keywords)">
+          <source [src]="singleVideo.url" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
     </div>
   </div>
 </div>

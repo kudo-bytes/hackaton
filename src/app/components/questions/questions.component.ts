@@ -14,8 +14,7 @@ export class QuestionsComponent implements OnInit {
   keywords = this.keywordsService.getKeywords();
   coreQuestion = {
     "role": "user",
-    "content": "I am the student, I have just finished school. Ask me aquestion to assess my interests and natural talent, skills and my ability to learn. In the end I need to understand what profession should I choose. Limit the characters to 100. Dont give me a feedback, just keep asking questions related to previous answer until I say to stop. Only ask me question that I could answer yes or no!"
-    // "content": "I am the student, I have just finished school. Ask me a broad questions about my behaviour and psycology to determine what profession would fit me. I will answer yes or no. Limit questions to 100"
+    "content": "I am the student, I have just finished school. Ask me aquestion to assess my interests and natural talent, skills and my ability to learn. In the end I need to understand what profession should I choose. Limit the characters to 100. Dont give me a feedback, just keep asking questions related to previous answer until I say to stop. Only ask me question that I could answer yes or no!",
   };
   chat = {
     "model": "gpt-3.5-turbo",
@@ -37,7 +36,6 @@ export class QuestionsComponent implements OnInit {
       this.concatAnswer(question);
       const questionText = question.content;
       this.question.nativeElement.innerText = questionText;
-      
     });
   }
 

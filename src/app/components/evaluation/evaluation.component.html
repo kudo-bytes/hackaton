@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="view-box">
+    <div class="view-content">
+      <div>
+        <ul>
+          <li *ngFor="let profession of matchedProfessions">
+            {{ profession }}
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="btn-container">
+      <div>
+        <!-- <button [disabled]="isLoading" (click)="answer('no')">NO</button> -->
+        <!-- <button [disabled]="isLoading" (click)="answer('yes')">YES</button> -->
+      </div>
+    </div>
+  </div>
+</div>
