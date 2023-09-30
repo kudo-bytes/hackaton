@@ -5,8 +5,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ChatgptService {
-  private apiUrl = 'https://api.openai.com/v1/chat/completions '; 
-  private token = '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';
+  private apiUrl = 'https://api.openai.com/v1/chat/completions'; 
+  private token = CHAT_TOKEN;
 
   private httpOptions = {
     headers: new HttpHeaders({
