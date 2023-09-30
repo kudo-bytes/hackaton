@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&display=swap');
+
+body {
+  background-color: #E7ECEF;
+  background-image: url('/assets/bg.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  font-size: 16px;
+  font-family: 'Outfit', sans-serif;
+}
+
+button {
+  padding: 5px 15px;
+  border: 0;
+  color: #fff;
+  background-color: #0F7173;
+  text-transform: uppercase;
+}

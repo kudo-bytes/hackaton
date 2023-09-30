@@ -1,0 +1,30 @@
+// .wrapper {
+//   min-width: 100vw;
+//   min-height: 100vh;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+// }
+
+// .centered-box {
+//   width: 60%;
+//   height: 80%;
+// }
+
+:host {  // This targets the app-root element
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.centered-box {
+  // width: 500px;
+  // height: 500px;
+  // width: 80%; // Or any preferred width
+  // max-width: 600px; // Or any preferred maximum width
+  // height: 90%;
+  // min-height: 200px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Optional: just to give a shadow to the box for better distinction
+}
+
