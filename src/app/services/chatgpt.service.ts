@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { CHAT_TOKEN } from 'src/environmental';
 
 @Injectable({
   providedIn: 'root'

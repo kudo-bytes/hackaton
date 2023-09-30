@@ -1,0 +1,1 @@
+{"ast":null,"code":"export const CHAT_TOKEN = '';","map":{"version":3,"mappings":"AAAA,OAAO,MAAMA,UAAU,GAAG,EAAE","names":["CHAT_TOKEN"],"sourceRoot":"","sources":["/Users/denys/Coding/hackaton-current/hackaton/src/environmental.ts"],"sourcesContent":["export const CHAT_TOKEN = '';"]},"metadata":{},"sourceType":"module","externalDependencies":[]}
