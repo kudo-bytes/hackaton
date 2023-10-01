@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&display=swap');
 
 body {
+  margin: 0;
   background-color: #E7ECEF;
   background-image: url('/assets/bg.png');
   background-repeat: no-repeat;
@@ -11,9 +12,38 @@ body {
 }
 
 button {
-  padding: 5px 15px;
+  padding: 8px 15px;
   border: 0;
+  font-size: 16px;
   color: #fff;
   background-color: #0F7173;
+  cursor: pointer;
   text-transform: uppercase;
+}
+
+
+@media only screen and (max-width: 767px) {
+  /* styles for mobile devices */
+  
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  /* styles for tablets */
+  button {
+    padding: 12px 25px;
+    font-size: 24px;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  /* styles for desktop */
+  .view-box {
+    width: 750px;
+    height: 600px;
+  }
+
+  button {
+    padding: 16px 30px;
+    font-size: 28px;
+  }
 }

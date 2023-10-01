@@ -8,14 +8,19 @@ import { VideosService } from './services/videos.service';
 })
 export class AppComponent {
   currentKeywords: string[] = [];
+  isEvaluation = false;
+  finalKeywords: string[] = [];
   
-  constructor(
-    private videoService: VideosService,
-  ) {}
+  constructor() {}
 
   proceedToVideos(keywords: string[]) {
     this.currentKeywords = keywords;
     console.log(keywords);
   }
+
+  proceedToEvaluation(keywords: string[]) {
+    this.currentKeywords = [];
+    this.isEvaluation = true;
+    this.finalKeywords = keywords;
+  }
 }
-// I am the student, I have just finished school. I am looking for a university in Poland (only Poland) that I could join. Help me to decide which polish university and the field of study is best for me. Ask me a question that I could answer yes or no. Limit the characters to 100. "

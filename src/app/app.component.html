@@ -1,12 +1,15 @@
-<!-- <div class="wrapper"> -->
-  <div class="centered-box">
-    <app-questions 
-    *ngIf="!currentKeywords.length"
-    (triggerVideos)="proceedToVideos($event)"
+<div class="centered-box">
+  <app-questions 
+  *ngIf="!currentKeywords.length && !isEvaluation"
+  (triggerVideos)="proceedToVideos($event)"
   ></app-questions>
-  <app-videos
-    *ngIf="currentKeywords.length"
-    [keywords]="currentKeywords"
-  ></app-videos>
-  </div>
-<!-- </div> -->
+  <app-evaluation 
+    *ngIf="isEvaluation"
+    [keywords]="finalKeywords"
+  ></app-evaluation>
+</div>
+<app-videos
+  *ngIf="currentKeywords.length && !isEvaluation"
+  (triggerEvaluation)="proceedToEvaluation($event)"
+  [keywords]="currentKeywords"
+></app-videos>

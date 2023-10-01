@@ -28,12 +28,21 @@ export class VideosComponent implements OnInit, AfterViewInit {
     this.renderer.listen('document', 'keydown', this.handleKeyboardEvent.bind(this));
   }
 
-  ngAfterViewInit(): void {}
+  ngAfterViewInit(): void {
+    this.triggerVideoPlay();
+  }
+
+  triggerVideoPlay() {
+    const element = this.getCurrentVideoData().element as unknown as HTMLVideoElement;
+    element.play();
+  }
 
   filterVideos(keywords: string[]) {
-    this.filteredVideos = this.videos.filter(video => 
-      video.keywords.some(keyword => keywords.includes(keyword))
-    );
+    // we must filter videos based on keywords. but we only have two videos, so we will hardcode it for now
+    // this.filteredVideos = this.videos.filter(video => 
+    //   video.keywords.some(keyword => keywords.includes(keyword))
+    // );
+    this.filteredVideos = this.videos;
   }
 
   onSwipe(event: CdkDragEnd, keywords: string[]) {
@@ -48,7 +57,10 @@ export class VideosComponent implements OnInit, AfterViewInit {
 
     if (this.filteredVideos.length === this.count) {
       this.triggerEvaluation.emit(this.selectedKeywords);
+      return;
     }
+
+    this.triggerVideoPlay();
   }
 
   handleKeyboardEvent(event: KeyboardEvent) {

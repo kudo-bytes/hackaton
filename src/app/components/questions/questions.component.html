@@ -1,13 +1,16 @@
 <div class="container">
   <div class="view-box">
     <div class="view-content">
+      <div class="title">Question {{counter}} </div>
       <div #question></div>
     </div>
     <div class="btn-container">
-      <div>
-        <button [disabled]="isLoading" (click)="answer('no')">NO</button>
-        <button [disabled]="isLoading" (click)="answer('yes')">YES</button>
-      </div>
+      <button [disabled]="isLoading" (click)="answer('yes')">YES</button>
+      <button [disabled]="isLoading" (click)="answer('no')">NO</button>
     </div>
   </div>
+</div>
+
+<div #loader class="loading">
+  <div class="loader"></div>
 </div>

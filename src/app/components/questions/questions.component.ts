@@ -12,6 +12,7 @@ export class QuestionsComponent implements OnInit {
   counter = 0;
   isLoading = false;
   keywords = this.keywordsService.getKeywords();
+  
   coreQuestion = {
     "role": "user",
     "content": "I am the student, I have just finished school. Ask me aquestion to assess my interests and natural talent, skills and my ability to learn. In the end I need to understand what profession should I choose. Limit the characters to 100. Dont give me a feedback, just keep asking questions related to previous answer until I say to stop. Only ask me question that I could answer yes or no!",
@@ -22,6 +23,7 @@ export class QuestionsComponent implements OnInit {
   };
 
   @ViewChild('question') question!: ElementRef;
+  @ViewChild('loader') loader!: ElementRef;
   @Output('triggerVideos') triggerVideos = new EventEmitter<string[]>();
 
   constructor(
@@ -31,6 +33,7 @@ export class QuestionsComponent implements OnInit {
 
   ngOnInit(): void {
     this.chatService.getQuestion(this.chat).subscribe((res: any) => {
+      this.loader.nativeElement.classList.add('hide');
       this.counter++;
       const question = res.choices[0].message;
       this.concatAnswer(question);
@@ -44,8 +47,7 @@ export class QuestionsComponent implements OnInit {
   }
 
   answer(answer: string) {
-    this.counter++;
-    if (this.counter === 5) {
+    if (this.counter + 1 === 5) {
       answer += `, Take a look at our conversation. I need 6 keywords that would relate to profession that I might like. Choose these keywords from this array ${this.keywords}. Return only 6 keywords in this format [keyword, keyword...]`;  
     }
     const formattedAnswer = {
@@ -61,6 +63,7 @@ export class QuestionsComponent implements OnInit {
     this.isLoading = true;
     
     this.chatService.getQuestion(this.chat).subscribe((res: any) => {
+      this.counter++;
       const question = res.choices[0].message;
       this.concatAnswer(question);
       const questionText = question.content; 
@@ -68,7 +71,7 @@ export class QuestionsComponent implements OnInit {
 
       this.isLoading = false;
 
-      if (this.counter === 5) {
+      if (this.counter === 8) {
         const currentKeywords = questionText.split(", ").map((item: any) => item.trim());
         this.triggerVideos.emit(currentKeywords);
       }
